@@ -2,7 +2,6 @@ body {
     margin: 0px;
     padding: 0;
     padding-top: 50px;
-
 }
 header {
     position: fixed;
@@ -17,42 +16,77 @@ header {
     grid-template-columns: auto 1fr;
     background-color: white;
 }
-header #navegation {
-    padding: 10px 10px;
-    background-color: white;
+header #navegation .menu{
+    padding: 5px 5px;
     border: transparent;
+    cursor: pointer;
+}
+header #navegation .leave {
+    width: 30px;
+    cursor: pointer;
+}
+
+#img-menu-inside {
+    width: 30px;
+    opacity: 1;
+    visibility:  visible;
 }
 header #navegation:hover {
     background-color: gainsboro;
     border-radius: 5px 5px ;
 }
-header #line-1 {
-    position:relative;
-    top: 0px;
-    width: 30px;
-    height: 4px;
-    border-radius: 5px 5px;
-    background-color: black;
-}
-header #line-2 {
-    position:relative;
-    top: 1px;
-    width: 30px;
-    height: 4px;
-    border-radius: 5px 5px;
-    background-color: black;
-}
-header #line-3 {
-    position:relative;
-    top: 2px;
-    width: 30px;
-    height: 4px;
-    border-radius: 5px 5px;
-    background-color: black;
-}
 header #bumbox-logo {
     padding: 5px 10px;
     width: 200px;
+}
+#btn-menu {
+    display: none;
+}
+.container-menu {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 50px;
+    left: 0;
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility:  hidden;
+    z-index: 2002;
+}
+#btn-menu:checked ~ .container-menu {
+    opacity: 1;
+    visibility:  visible;
+}
+.cont-menu {
+    width: 100%;
+    max-width: 250px;
+    background: #ffffff;
+    height: 100%;
+    position: relative;
+    transition: all 500ms ease;
+    padding-left: 2px;
+    transform: translateX(-100%);
+}
+#btn-menu:checked ~ .container-menu .cont-menu{
+    transform: translateX(0%);
+}
+.cont-menu a{
+    display: block;
+    text-decoration: none;
+    padding: 20px;
+    color: #032D66;
+    border-left: 5px solid transparent;
+    transition: all 400ms ease;
+}
+.cont-menu a:hover{
+    background: #f0f0f0;
+    border-left: 5px solid #032D66;
+}
+.cont-menu label {
+    position: absolute;
+    top: -40px;
+    left: 55px;
 }
 nav {
     display: grid;
@@ -110,6 +144,9 @@ nav #websites-list a img{
 .facebook:hover {
     filter: invert(31%) sepia(10%) saturate(4689%) hue-rotate(188deg) brightness(93%) contrast(82%);
 }
+#redes-check, .container-websites, .websites-boton{
+    display: none;
+}
 section #img-pagelead {
     width: 100%;
     border-top: 3px solid rgb(0, 115, 255);
@@ -152,7 +189,7 @@ article #img-article {
 }
 article #img-article img {
     border-radius: 5px 5px;
-    width: 100%;
+    width: 90%;
     height: 100%;
 }
 article #info-article {
@@ -214,9 +251,52 @@ article #info-article #opinions {
     }
 }
 @media (max-width: 860px) {
-    nav #websites-list button{
+    nav #websites-list .websites-boton{
         display: block;
+        border: none;
+        padding: 5px 5px 0px 5px;
+        background-color: transparent;
+        color: #ffffff;
     }
+    nav #websites-list .websites-boton:hover {
+        border-bottom: 1px solid #032D66;
+        border-radius: 5px 5px;
+        box-shadow: 0px 0px 5px #ffffff;
+        cursor: pointer;
+    }
+    #redes-check {
+        display: none;
+    }
+    nav .container-websites {
+        display: block;
+        position: fixed;
+        background-color: rgba(255, 255, 255, 0.5);
+        width: 150px;
+        height: 280px;
+        top: 93px;
+        right: 0;
+        transition: all 500ms ease;
+        opacity: 0;
+        visibility:  hidden;
+        z-index: 2001;
+    }
+    #redes-check:checked ~ .container-websites{
+        opacity: 1;
+        visibility:  visible;
+    }
+    nav .container-websites a{
+        display: block;
+        text-decoration: none;
+        padding: 20px;
+        color: #032D66;
+        border-left: 5px solid transparent;
+        transition: all 400ms ease;
+    }
+    nav .container-websites a:hover {
+        background: #f0f0f0;
+        border-left: 5px solid #032D66;
+    }
+    
     nav #websites-list a img{
         display: none;
     }
@@ -239,7 +319,7 @@ article #info-article #opinions {
         margin: 5px 0px 5px 5px;
     }
     section #breadcrumbs #text{
-        top: -5px;
+        top: 4px;
     }
     article {
         margin: 0px 5px;
